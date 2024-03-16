@@ -4,6 +4,8 @@ from torchvision import transforms
 
 
 def test() -> None:
+    word = str()
+
     with open("model.pth", "rb") as file:
         model = torch.load(file)
     
@@ -30,4 +32,6 @@ def test() -> None:
         
         sign_name = classes[predicted.item()]
         
-        print(f"Prediction for image {i}: {sign_name}")
+        word += sign_name
+    
+    print(word.title())
