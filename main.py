@@ -1,13 +1,15 @@
 #!/usr/bin/env python
 
-import sys
-import torch
-import torchvision
+from dataset import ASLDataset
+from torchvision import transforms
 
 def main() -> None:
-    print(f"Python version: {sys.version}")
-    print(f"PyTorch version: {torch.__version__}")
-    print(f"Torchvision version: {torchvision.__version__}")
+    transform = transforms.Compose([
+        transforms.Resize((128, 128)),
+        transforms.ToTensor(),
+    ])
+
+    dataset = ASLDataset(root="dataset/", transform=transform)
 
 if __name__ == "__main__":
     main()
