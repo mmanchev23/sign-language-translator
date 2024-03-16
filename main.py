@@ -2,6 +2,7 @@
 
 from dataset import ASLDataset
 from torchvision import transforms
+from torch.utils.data import DataLoader
 
 def main() -> None:
     transform = transforms.Compose([
@@ -10,6 +11,8 @@ def main() -> None:
     ])
 
     dataset = ASLDataset(root="dataset/", transform=transform)
+
+    dataloader = DataLoader(dataset, batch_size=32, shuffle=True)
 
 if __name__ == "__main__":
     main()
