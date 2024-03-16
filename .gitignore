@@ -161,3 +161,4 @@ cython_debug/
 
 # PyTorch
 dataset/
+model.pth
